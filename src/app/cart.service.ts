@@ -25,6 +25,10 @@ export class CartService {
     return this.items;
   }
 
+  removeItem(index) {
+    
+  }
+
   getShippingPrices() {
     return this.http.get('/assets/shipping.json');
   }

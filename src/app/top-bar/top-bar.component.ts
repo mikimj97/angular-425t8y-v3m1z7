@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CartService } from '../cart.service';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
-export class TopBarComponent implements OnInit {
+export class TopBarComponent implements OnInit, OnChanges {
   count;
 
   constructor(
@@ -14,12 +14,12 @@ export class TopBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.count = this.cartService.getItems.length;
+    this.count = this.cartService.getItems().length;
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    window.alert(changes);
-    this.count = this.cartService.getItems.length;
+    window.alert("changes detected");
+    this.count = this.cartService.getItems().length;
   }
 
 }
