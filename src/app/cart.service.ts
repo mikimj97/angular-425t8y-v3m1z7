@@ -7,16 +7,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
 
-  items = [];
-  count = new BehaviorSubject(this.items.length);
+  items = new Map();
+  count = new BehaviorSubject(this.items.size);
 
   constructor(
     private http: HttpClient
   ) { }
 
-  addToCart(product) {
-    this.items.push(product);
-    this.count.next(this.items.length);
+  addToCart(productName, quantity) {
+    this.items.set(productName, quantity);
+    this.count.next(this.items.size);
   }
 
   getItems() {
@@ -24,12 +24,12 @@ export class CartService {
   }
 
   clearCart() {
-    this.items = [];
+    this.items.clear;
     return this.items;
   }
 
-  removeItem(index) {
-    
+  removeItem(name) {
+    this.items.delete(name);
   }
 
   getShippingPrices() {
