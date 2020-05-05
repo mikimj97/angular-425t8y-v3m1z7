@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { CartService } from '../cart.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-top-bar',
@@ -14,7 +15,9 @@ export class TopBarComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    this.count = this.cartService.getItems().length;
+    this.cartService.getCount().subscribe((count) => {
+      this.count = count;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
