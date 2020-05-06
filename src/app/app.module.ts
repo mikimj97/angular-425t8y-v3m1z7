@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { ShippingComponent } from './shipping/shipping.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },

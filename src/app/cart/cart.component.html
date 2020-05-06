@@ -5,6 +5,7 @@
 </p>
 
 <div class="cart-item" *ngFor="let item of items | keyvalue">
+  <p>There should be an item here:</p>
   <span>{{ item.key[0] }}</span>
   <span>{{ item.key[1] | currency }}</span>
   <span>{{ item.value }}</span>

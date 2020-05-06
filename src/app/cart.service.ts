@@ -14,9 +14,23 @@ export class CartService {
     private http: HttpClient
   ) { }
 
+  countTotalItems() {
+    let count = 0;
+    for (let item of this.items) {
+      count += item[1]
+    }
+    console.log(`Updated cart count: ${count}`)
+    return count;
+  }
+
   addToCart(productName, quantity) {
-    this.items.set(productName, quantity);
-    this.count.next(this.items.size);
+    console.log(`Adding ${quantity} ${productName.toString()}`)
+    if (this.items.has(productName)) {
+      this.items.get[productName] += quantity;
+    } else {
+      this.items.set(productName, quantity);
+    }
+    this.count.next(this.countTotalItems());
   }
 
   getItems() {

@@ -3,7 +3,9 @@
 <div *ngIf="product">
   <h3>{{ product.name }}</h3>
   <h4>{{ product.price | currency }}</h4>
+  <input [(ngModel)]='quantity' type="number" name="quantity" min="1" max="5" required>
+
   <p>{{ product.description }}</p>
 
-  <button (click)="addToCart(product)">Buy</button>
+  <button [disabled]="!quantity" (click)="addToCart(product, quantity)">Buy</button>
 </div>
