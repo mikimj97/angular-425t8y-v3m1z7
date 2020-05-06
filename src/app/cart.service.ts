@@ -15,20 +15,27 @@ export class CartService {
   ) { }
 
   countTotalItems() {
+    console.log(`distinct items: ${this.items.size}`);
     let count = 0;
-    for (let item of this.items) {
-      count += item[1]
+    for (let item in this.items) {
+      console.log(`item[0]: ${item[0]}`);
+      console.log(`item[1]: ${item[0]}`);
+      // console.log(`item[0]: ${item[0]}`);
+      count += item[1][1];
     }
     console.log(`Updated cart count: ${count}`)
     return count;
   }
 
-  addToCart(productName, quantity) {
-    console.log(`Adding ${quantity} ${productName.toString()}`)
-    if (this.items.has(productName)) {
-      this.items.get[productName] += quantity;
+  addToCart(product, quantity) {
+    console.log(`Adding ${quantity} ${product.name}`)
+
+    if (this.items.has(product.name)) {
+      this.items.get[product.name][1] += quantity;
     } else {
-      this.items.set(productName, quantity);
+      let pair: [object, number];
+      pair = [product, quantity];
+      this.items.set(product.name, pair);
     }
     this.count.next(this.countTotalItems());
   }

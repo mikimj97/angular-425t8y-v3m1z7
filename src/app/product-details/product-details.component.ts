@@ -18,7 +18,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product, quantity) {
     this.cartService.addToCart(product, quantity);
-    window.alert(`Your product has been added to the cart! Quantity: ${quantity}`);
+    // window.alert(`Your product has been added to the cart! Quantity: ${quantity}`);
   }
 
   ngOnInit() {
