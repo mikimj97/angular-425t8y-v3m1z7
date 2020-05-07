@@ -17,12 +17,11 @@ export class CartService {
   countTotalItems() {
     console.log(`distinct items: ${this.items.size}`);
     let count = 0;
-    for (let item in this.items) {
-      console.log(`item[0]: ${item[0]}`);
-      console.log(`item[1]: ${item[0]}`);
-      // console.log(`item[0]: ${item[0]}`);
-      count += item[1][1];
-    }
+
+    this.items.forEach((value: object, key: string) => {
+      count += value[1];
+    });
+
     console.log(`Updated cart count: ${count}`)
     return count;
   }

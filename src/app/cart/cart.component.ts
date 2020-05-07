@@ -24,7 +24,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
-    window.alert(`items: ${this.items.size}`);
   }
 
   onSubmit(customerData) {
