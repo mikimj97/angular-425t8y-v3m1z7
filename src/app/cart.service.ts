@@ -30,7 +30,7 @@ export class CartService {
     console.log(`Adding ${quantity} ${product.name}`)
 
     if (this.items.has(product.name)) {
-      this.items.get[product.name][1] += quantity;
+      this.items.get(product.name)[1] += quantity;
     } else {
       let pair: [object, number];
       pair = [product, quantity];
