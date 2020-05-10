@@ -1,0 +1,16 @@
+.row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.header {
+  display: table-cell;
+  border: 1px solid black;
+}
+
+.cell {
+  display: table-cell;
+  border: 1px solid black;
+}

@@ -1,16 +1,22 @@
 <h3>Cart</h3>
 
 <div class="row">
-  <div style="float: left; width: 150px; text-align: center" class="column">Name</div>
-  <div style="float: left; width: 150px; text-align: center" class="column">Price</div>
-  <div style="float: left; width: 150px; text-align: center" class="column">Quantity</div>
+  <div class="header">Name</div>
+  <div class="header">Quantity</div>
+  <div class="header">Item Price</div>
+  <div class="header">Item Total</div>
 </div> 
 
-<div class="cart-item" *ngFor="let item of items | keyvalue">
-  <span>{{ item.key }}</span>
-  <span>{{ item.value[0].price | currency }}</span>
+<div class="row" *ngFor="let item of items | keyvalue">
+  <div class="cell">{{ item.key }}</div>
+  <div class="cell">{{ item.value[1] }}</div>
+  <div class="cell">{{ item.value[0].price | currency }}</div>
+  <div class="cell">{{ item.value[0].price * item.value[1] | currency }}</div>
   <!-- <span>{{ item.value[0].description }}</span> -->
-  <span>{{ item.value[1] }}</span>
+</div>
+
+<div class="row">
+  <div style="float:right; margin-top: 10px; width:50%">Subtotal: ${{ getSubtotal() }}</div>
 </div>
 
 <form [formGroup]="checkoutForm" (ngSumbit)="onSubmit(checkoutForm.value)">

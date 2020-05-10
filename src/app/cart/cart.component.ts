@@ -26,6 +26,16 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems();
   }
 
+  getSubtotal() {
+    let subtotal = 0;
+
+    this.items.forEach((value: object, key: string) => {
+      subtotal += value[1] * value[0].price;
+    });
+
+    return subtotal;
+  }
+
   onSubmit(customerData) {
     //Process data here
 
